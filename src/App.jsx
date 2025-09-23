@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-   <div className='flex justify-center md:items-center h-screen border-2'>
+   <div className='flex justify-center md:items-center h-screen '>
      <MainLayout></MainLayout>
     
    </div>
