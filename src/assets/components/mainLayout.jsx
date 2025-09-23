@@ -16,7 +16,8 @@ const MainLayout = () => {
 
 
       const addTask = ()=>{
-         setTaskArr((prev) => [...prev, task]); 
+        if(task.trim()==="") return;
+         setTaskArr((prev) => [...prev, {text:task, completed:false}]); 
   setTask(""); 
       
       }
@@ -25,12 +26,12 @@ const MainLayout = () => {
         }, [taskArr])
   return (
   <>
-   <div className='mx-3 my-7 md:w-3xl h-fit md:h-96 flex flex-col items-center  shadow-2xl'>
+   <div className='mx-3 my-7 md:w-3xl h-fit md:h-96 flex flex-col items-center  shadow-2xl  bg-blue-300'>
       <div className='md:w-3xl flex justify-center items-center'>
         <MyTextField onChange={taskHandler} value={task}/>
        <MyBtn onClick={addTask}></MyBtn>
       </div>
-    <BasicTable arr={taskArr} setTaskArr={setTaskArr}/>
+    <BasicTable arr={taskArr} setTaskArr={setTaskArr} task={task}/>
    </div>
   </>
   )
