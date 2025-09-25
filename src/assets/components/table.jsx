@@ -54,7 +54,7 @@ export default function BasicTable({ arr, setTaskArr , task}) {
 
   return (
     <TableContainer component={Paper} >
-      <Table aria-label="simple table" className= "bg-blue-300">
+      <Table aria-label="simple table">
         <TableHead>
           <TableRow sx={{ display: "flex", justifyContent: "space-around" }}>
             <TableCell sx={{ fontWeight: "bolder" }}>Tasks</TableCell>

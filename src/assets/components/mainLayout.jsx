@@ -26,10 +26,10 @@ const MainLayout = () => {
         }, [taskArr])
   return (
   <>
-   <div className='mx-3 my-7 md:w-3xl h-fit md:h-96 flex flex-col items-center  shadow-2xl  bg-blue-300'>
+   <div className='mx-3 my-7 md:w-3xl h-fit md:h-96 flex flex-col items-center  shadow-2xl rounded-2xl'>
       <div className='md:w-3xl flex justify-center items-center'>
-        <MyTextField onChange={taskHandler} value={task}/>
-       <MyBtn onClick={addTask}></MyBtn>
+        <MyTextField onChange={taskHandler} value={task} placeholder={"Enter your Task"} label={"Tasks"} type="text"/>
+       <MyBtn onClick={addTask} label={"Add Task"}></MyBtn>
       </div>
     <BasicTable arr={taskArr} setTaskArr={setTaskArr} task={task}/>
    </div>
