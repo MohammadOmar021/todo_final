@@ -3,10 +3,11 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../../firebase';
 import MysignUp from '../../assets/components/signUp';
 import { Navigate, useNavigate } from 'react-router-dom';
+import MyTextField from '../../assets/components/myTextField';
 
 
 const SignUp = () => {
- 
+    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate();
@@ -33,6 +34,15 @@ const SignUp = () => {
     
     navigate("/")
     // ...
+
+    const createUser = fetch("http://localhost:3000/createUser", {
+      method: 'POST',
+       headers: { 'Content-Type': 'application/json' },
+       body: JSON.stringify({ name: 'Umer', email: 'umer@example.com', isActive: true})
+    }).then(res=>res.json()).then(data=>console.log(data)).catch(err=>console.log(err))
+
+
+
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -40,13 +50,16 @@ const SignUp = () => {
     // ..
   });
 
+  
 
   }
 
     return (
     <>
-    
-    <MysignUp label={"Sign Up"} span={"Already Have An Account"} onChange1={emailHandler} onChange2={passwordHandler} to={"/"} onClick={signHandler}/>
+   
+    <MysignUp label={"Sign Up"} span={"Already Have An Account"} onChange1={emailHandler} onChange2={passwordHandler} to={"/"} onClick={signHandler}
+    show={true}
+    />
     
     </>
   )

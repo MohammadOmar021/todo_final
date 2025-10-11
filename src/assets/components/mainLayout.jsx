@@ -24,6 +24,12 @@ const MainLayout = () => {
      useEffect(()=>{
           console.log(taskArr)
         }, [taskArr])
+
+
+        const apifetch = async()=>{
+          const data = await fetch('http://localhost:3000/products').then(res=>res.json())
+            console.log("FrontEnd working",data)
+        }
   return (
   <>
    <div className='mx-3 my-7 md:w-3xl h-fit md:h-96 flex flex-col items-center  shadow-2xl rounded-2xl'>
@@ -33,6 +39,7 @@ const MainLayout = () => {
       </div>
     <BasicTable arr={taskArr} setTaskArr={setTaskArr} task={task}/>
    </div>
+   {/* <MyBtn label={"Hello"} onClick={apifetch}/> */}
   </>
   )
 }

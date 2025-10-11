@@ -25,7 +25,9 @@ function App() {
     <Route element={<AuthRoute/>}>
     <Route path='/' element={<MyLogin/>}/>
     </Route>
+    <Route element={<AuthRoute/>}>
     <Route path='/signup' element={<SignUp/>}/>
+    </Route>
     <Route element={<PrivateRoute/>}>
     <Route path='/mainLayout' element={<MainLayout/>}/>
     </Route>
